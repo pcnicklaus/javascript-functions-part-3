@@ -2,10 +2,9 @@
 console.log("sanity check!");
 
 // Define a function called getStudentName that takes a single object as an argument and returns the value of the name property/key.
-
+// getStudentName(name) // => Michael
 // A)
 var student = {name: 'Michael', age: 27 }
-// getStudentName(name) // => Michael
 
 function getStudentName(object) {
   console.log(object.name);
@@ -15,7 +14,6 @@ getStudentName(student);
 
 // B)
 var student = {name: 'Michael', age: 27 }
-// getStudentName(name) // => Michael
 
 function getStudentName(object) {
   return student.name;
@@ -147,114 +145,47 @@ function getVowels (string) {
     for (var j = 0; j < vowels.length; j++) {
       if (string.charAt(i) === vowels[j]) {
         var z = vowels.indexOf(vowels[j]);
-        console.log(z + " z")
-        console.log(string[i] + " stringI");
-        console.log(vowels[j] + " vowelsJ");
+        // console.log(z + " z")
+        // console.log(string[i] + " stringI");
+        // console.log(vowels[j] + " vowelsJ");
         vowels.splice(z, 1);
-        console.log(vowels + " vowels");
+        // console.log(vowels + " vowels");
         holder.push(string.charAt(i));
-        console.log(holder + " holder");
-
+        // console.log(holder + " holder");
       }
     }
   }
-  console.log(holder)
+  // console.log(holder)
   return holder;
 }
 
 getVowels('javascripting'); // => ['a', 'i']
 
-// var vowels = ['a','e','i','o','u'];
-
-// var holder = [];
-// function getVowels (string) {
-//   // stringArray = string.split("");
-//   for (var i = 0; i < stringArray.length; i++) {
-//     for (var j = 0; j < vowels.length; j++) {
-//       if (string.charAt(i) === vowels[j]) {
-//         var r = string.charAt(i);
-//         console.log(r + " r")
-//         string.split(r).join("");
-//         console.log(string + "string");
-//         console.log(string[i] + " stringI");
-//         console.log(vowels[j] + " vowelsJ");
-//         console.log(vowels + " vowels");
-//         holder.push(string.charAt(i));
-//         console.log(holder + " holder");
-
-//       }
-//     }
-//   }
-// }
-
-// getVowels('javascripting')
-
-// if (string.charAt(i) === "a") {
-//       console.log('firing');
-//       vowels += string.charAt(i);
-//       if (stringl.charAt(i) === "i")
-//         vowels += string.charAt(i);
 
 
-//8. Define a function called captureTwins that takes an array as an argument and returns true if every adjacent pair of items in the array is the same, otherwise return false.
-// could i sort??
-// 1. sort them into two seperate elements? arrays? strings?
-// compare them
-// return false if any don't work.
-var first = [];
-var second = [];
-
-var in1 = ['m', 'm', 'n', 'n', 's', 's']
+//8. Working - Define a function called captureTwins that takes an array as an argument and returns true if every adjacent pair of items in the array is the same, otherwise return false.
 
 captureTwins(['m', 'm', 'n', 'n', 's', 's']) // => true
 captureTwins(['m', 'm', 'm', 'n', 's', 's']) // => false
-captureTwins(['m', 'm', 'n', 'n', 's', 's']) // => true
 
-captureTwins(['m', 'm', 'm', 'n', 's', 's']) // => false
 
 function captureTwins(array) {
   var pairsArray = [];
-  var x = [];
-  var q = 0;
+  var container = [];
+  var trueSwitch = false;
   for (var i = 0; i < array.length + 1; i++) {
-    var x = array.splice(0,2);
-    console.log(x)
-    pairsArray.push(x);
-    console.log(pairsArray);
+    var container = array.splice(0,2);
+    pairsArray.push(container);
   }
   for (var j = 0; j < pairsArray.length; j++) {
     if (pairsArray[j][0] !== pairsArray[j][1]) {
-      console.log(pairsArray[j] + "= [j]")
-      console.log(pairsArray[j][0] + "= [j][0]");
-      console.log(pairsArray[j][1] + "= [j][1]");
-      q++;
       return false;
+    } else {
+      trueSwitch = true;
     }
-    // else {
-    //   if (q >= 0) {
-    //     return true;
-    //   }
-    // }
   }
+ return trueSwitch;
 }
-
-
-
-var in2 = ['m', 'm', 'm', 'n', 's', 's']
-captureTwins(['m', 'm', 'm', 'n', 's', 's']) // => false
-
-
-// function captureTwins(array) {
-//   for (var i = 0; i < array.length; i++) {
-//     if (array.indexOf(array(i)) % 2 === 0) {
-//       first.push(i);
-//       console.log(first);
-//     } else {
-//       second.push(i);
-//       console.log(second);
-//     }
-//   }
-// }
 
 
 
@@ -323,44 +254,88 @@ testBooleanLogic([false, false, false]) // =>  false
 //   }
 // }
 
-getUniqueValues(['m', 'n', 'm', 'r', 'r', 's']) // => ['m', 'n', 'r', 's']
+// getUniqueValues(['m', 'n', 'm', 'r', 'r', 's']) // => ['m', 'n', 'r', 's']
+// getUniqueValues(['michael', 'ben', 'kerry', 'ben']) // => ['michael', 'ben', 'kerry']
+
+/*
+take teh first one out
+put it in a holder
+test it against the rest
+if it doesn't match, put it in a new holder.
+repeat
+return new holder
+*/
 getUniqueValues(['michael', 'ben', 'kerry', 'ben']) // => ['michael', 'ben', 'kerry']
 
-
 function getUniqueValues(array) {
-  var copy = array.splice(0,1);
+  var testContainer = array.splice(0,1);
+  console.log(testContainer + "TC bf lp");
   var originals = [];
-  // originals = array.splice(0,1);
-  // console.log(array);
-  // console.log(originals + " originals Beginning");
-  for (var i = 0; i < copy.length; i++) {
-    console.log(copy.length)
-     for (var j = 0; j < array.length; j++) {
-        var r = array[j];
-        console.log(r + " = r value")
-        if ( copy[i] === array[j] ) {
-          console.log(array[j] + " arrayI If");
-          console.log(copy[i] + " copyJ If");
-          array.shift();
-          console.log(array + " array contents in If");
-          console.log(copy + " copy contents in If");
-
-      } else {
-          originals.push(r);
-          console.log(originals + "originals  contents in Else")
-          array.shift();
-          console.log(array + "array contents in Else")
-          var w = array.splice(0,1);
-          copy.push(w);
-          console.log(copy + " copy contents in Else")
-          // holder += array.slice(0,1);
-          debugger;
-          console.log(i + " i")
-          console.log(originals + " originals else");
-      }
+  while (array.length > 0) {
+    debugger;
+    if (array[0] === testContainer) {
+      array.shift;
+      holder = array.splice(0,1);
+    } else {
+      originals.push(array[0]);
     }
   }
+  return originals
 }
+
+
+
+
+
+//   for ( var i = 0; i < array.length; i++) {
+//     if (array[i] !== holder) {
+//       holder = array.splice(0,1);
+//       console.log(holder);
+//       debugger;
+//     } else {
+//       holder = array.splice(0,1);
+//     }
+
+//   }
+// }
+
+
+
+
+// function getUniqueValues(array) {
+//   var holder = array.splice(0,1);
+//   var originals = [];
+//   // originals = array.splice(0,1);
+//   // console.log(array);
+//   // console.log(originals + " originals Beginning");
+//   for (var i = 0; i < copy.length; i++) {
+//     console.log(copy.length)
+//      for (var j = 0; j < array.length; j++) {
+//         var r = array[j];
+//         console.log(r + " = r value")
+//         if ( copy[i] === array[j] ) {
+//           console.log(array[j] + " arrayI If");
+//           console.log(copy[i] + " copyJ If");
+//           array.shift();
+//           console.log(array + " array contents in If");
+//           console.log(copy + " copy contents in If");
+
+//       } else {
+//           originals.push(r);
+//           console.log(originals + "originals  contents in Else")
+//           array.shift();
+//           console.log(array + "array contents in Else")
+//           var w = array.splice(0,1);
+//           copy.push(w);
+//           console.log(copy + " copy contents in Else")
+//           // holder += array.slice(0,1);
+//           debugger;
+//           console.log(i + " i")
+//           console.log(originals + " originals else");
+//       }
+//     }
+//   }
+// }
 
 
 
