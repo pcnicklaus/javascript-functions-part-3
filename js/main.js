@@ -114,108 +114,105 @@ function removeCharacter(string, character) {
 // 6. Define a function called ouputObject that takes an object as an argument and returns each key-value pair in the following format 'key .
 //Object.keys and ages.john
 // for in loop = research it
-var ages = {john: 10, jerry: 11, jenny: 12 }
-outputObject(ages); // => john is 10, jerry is 20, and jenny is 30
+// var ages = {john: 10, jerry: 11, jenny: 12 }
+// outputObject(ages); // => john is 10, jerry is 20, and jenny is 30
 
-function outputObject (object) {
-  var txt = "";
-  var x;
-  for (x in ages) {
-      txt += x + " is " + ages[x] + ", ";
-      console.log(txt);
-  }
-}
-
-// function outputObject (object)
-//   for (var i = 0; i < object.length; i++) {
-//     console.log(object[i] + " is " + object.i);
+// function outputObject (object) {
+//   var txt = "";
+//   var x;
+//   for (x in ages) {
+//       txt += x + " is " + ages[x] + ", ";
+//       console.log(txt);
 //   }
 // }
+
+
 
 // 7. Define a function called getVowels that takes a string as an argument and returns an array of all the vowels in the string. Do not include duplicates.
 // check to see if the first letter is one of the vowels.
 // if it is, do something, if it isn't keep checking.
 // two sets of arrays compare them to gether if they hit, slice that vowel out of vowels array
-var vowels = ['a','e','i','o','u'];
+// var vowels = ['a','e','i','o','u'];
 
-var holder = [];
-function getVowels (string) {
-  // stringArray = string.split("");
-  for (var i = 0; i < stringArray.length; i++) {
-    for (var j = 0; j < vowels.length; j++) {
-      if (string.charAt(i) === vowels[j]) {
-        var z = vowels.indexOf(vowels[j]);
-        // console.log(z + " z")
-        // console.log(string[i] + " stringI");
-        // console.log(vowels[j] + " vowelsJ");
-        vowels.splice(z, 1);
-        // console.log(vowels + " vowels");
-        holder.push(string.charAt(i));
-        // console.log(holder + " holder");
-      }
-    }
-  }
-  // console.log(holder)
-  return holder;
-}
+// var holder = [];
+// function getVowels (string) {
+//   // stringArray = string.split("");
+//   for (var i = 0; i < stringArray.length; i++) {
+//     for (var j = 0; j < vowels.length; j++) {
+//       if (string.charAt(i) === vowels[j]) {
+//         var z = vowels.indexOf(vowels[j]);
+//         // console.log(z + " z")
+//         // console.log(string[i] + " stringI");
+//         // console.log(vowels[j] + " vowelsJ");
+//         vowels.splice(z, 1);
+//         // console.log(vowels + " vowels");
+//         holder.push(string.charAt(i));
+//         // console.log(holder + " holder");
+//       }
+//     }
+//   }
+//   // console.log(holder)
+//   return holder;
+// }
 
-getVowels('javascripting'); // => ['a', 'i']
+// getVowels('javascripting'); // => ['a', 'i']
 
 
 
 //8. Working - Define a function called captureTwins that takes an array as an argument and returns true if every adjacent pair of items in the array is the same, otherwise return false.
 
-captureTwins(['m', 'm', 'n', 'n', 's', 's']) // => true
-captureTwins(['m', 'm', 'm', 'n', 's', 's']) // => false
+// captureTwins(['m', 'm', 'n', 'n', 's', 's']) // => true
+// captureTwins(['m', 'm', 'm', 'n', 's', 's']) // => false
 
 
-function captureTwins(array) {
-  var pairsArray = [];
-  var container = [];
-  var trueSwitch = false;
-  for (var i = 0; i < array.length + 1; i++) {
-    var container = array.splice(0,2);
-    pairsArray.push(container);
-  }
-  for (var j = 0; j < pairsArray.length; j++) {
-    if (pairsArray[j][0] !== pairsArray[j][1]) {
-      return false;
-    } else {
-      trueSwitch = true;
-    }
-  }
- return trueSwitch;
-}
+// function captureTwins(array) {
+//   var pairsArray = [];
+//   var container = [];
+//   var trueSwitch = false;
+//   for (var i = 0; i < array.length + 1; i++) {
+//     var container = array.splice(0,2);
+//     pairsArray.push(container);
+//   }
+//   for (var j = 0; j < pairsArray.length; j++) {
+//     if (pairsArray[j][0] !== pairsArray[j][1]) {
+//       return false;
+//     } else {
+//       trueSwitch = true;
+//     }
+//   }
+//  return trueSwitch;
+// }
 
 
 
 // Working
 // 9. Define a function called testBooleanLogic that takes an array of boolean values and returns true if any value is true.
 
-var trues = [];
-var falses = [];
+// var trues = [];
+// var falses = [];
 
-function testBooleanLogic (array) {
-  for (var i = 0; i < array.length; i++) {
-    if ( array[i] === true ) {
-      console.log(array[i] + "if so true?")
-      trues.push(array[i]);
-      return true;
-    } else {
-        falses.push(array[i]);
-    }
-  }
-  if (trues.length === 0) {
-    console.log("false");
-    return false;
-  }
-}
+// function testBooleanLogic (array) {
+//   for (var i = 0; i < array.length; i++) {
+//     if ( array[i] === true ) {
+//       console.log(array[i] + "if so true?")
+//       trues.push(array[i]);
+//       return true;
+//     } else {
+//         falses.push(array[i]);
+//     }
+//   }
+//   if (trues.length === 0) {
+//     console.log("false");
+//     return false;
+//   }
+// }
 
-testBooleanLogic([false, true, false, false]) // => true
-testBooleanLogic([false, false, false]) // =>  false
+// testBooleanLogic([false, true, false, false]) // => true
+// testBooleanLogic([false, false, false]) // =>  false
 
 
-// 10. Define a function called getUniqueValues that takes an array of strings, and returns a new array consisting of the unique values.
+// 10. NOT WORKING - I GIVE UP!!!
+// Define a function called getUniqueValues that takes an array of strings, and returns a new array consisting of the unique values.
 /// grab the first value of the string.
 /// check that value against the rest of teh string.
 /// if it matches,
@@ -265,24 +262,48 @@ if it doesn't match, put it in a new holder.
 repeat
 return new holder
 */
-getUniqueValues(['michael', 'ben', 'kerry', 'ben']) // => ['michael', 'ben', 'kerry']
+// getUniqueValues(['michael', 'ben', 'kerry', 'ben']) // => ['michael', 'ben', 'kerry']
+getUniqueValues(['m', 'n', 'm', 'r', 'r', 's']) // => ['m', 'n', 'r', 's']
 
 function getUniqueValues(array) {
   var testContainer = array.splice(0,1);
-  console.log(testContainer + "TC bf lp");
+  console.log(testContainer + " TC bf lp");
   var originals = [];
-  while (array.length > 0) {
-    debugger;
-    if (array[0] === testContainer) {
+  for (var i = 0; i < array.length; i++) {
+
+    if (array[i] === testContainer) {
+          debugger;
+      console.log(array[i] + " array[i]")
       array.shift;
-      holder = array.splice(0,1);
+      testContainer = array.splice(0,1);
     } else {
-      originals.push(array[0]);
+      originals.push(testContainer);
+      testContainer = array.splice(0,1)
     }
   }
+  console.log(originals + "originals")
   return originals
 }
 
+
+// function getUniqueValues(array) {
+//   var testContainer = array.splice(0,1);
+//   console.log(testContainer + " TC bf lp");
+//   var originals = [];
+//   while (array.length) {
+//     debugger;
+//     if (array[0] === testContainer) {
+//       console.log(array[0] + " array[0]")
+//       array.shift;
+//       testContainer = array.splice(0,1);
+//     } else {
+//       originals.push(testContainer);
+//       testContainer = array.splice(0,1)
+//     }
+//   }
+//   console.log(originals + "originals")
+//   return originals
+// }
 
 
 
